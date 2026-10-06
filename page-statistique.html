@@ -49,9 +49,9 @@
         // Déterminer quel graphique afficher en fonction du paramètre d'URL
         const type = getUrlParameter('type');
 
-        if (type === 'marketing') {
+        if (type !== 'production') {
             document.getElementById('marketingChartContainer').style.display = 'block';
-        } else if (type === 'production') {
+        } if (type !== 'marketing') {
             document.getElementById('productionChartContainer').style.display = 'block';
         }
 
@@ -120,12 +120,12 @@
         };
 
         // Initialisation des graphiques
-        if (type === 'marketing') {
+        if (type !== 'production') {
             const marketingChart = new Chart(
                 document.getElementById('marketingChart'),
                 marketingConfig
             );
-        } else if (type === 'production') {
+        } if (type !== 'marketing') {
             const productionChart = new Chart(
                 document.getElementById('productionChart'),
                 productionConfig

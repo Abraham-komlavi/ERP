@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des campagnes</title>
+    <link rel="stylesheet" href="liste-marketing.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Liste des campagnes</h1>
+        <div class="actions">
+            <a href="formulaire-marketing.html" class="button">Ajouter</a>
+            <a href="Modification-marketing.html" class="button">Modifier</a>
+            <button onclick="showDeleteForm()" class="button">Supprimer</button>
+        </div>
+    </header>
+    <main>
+        <table id="campaignTable">
+            <thead>
+                <tr>
+                    <th>Identifiant</th>
+                    <th>Nom</th>
+                    <th>Besoin</th>
+                    <th>Revenu</th>
+                    <th>Occasion</th>
+                </tr>
+            </thead>
+            <tbody id="campaignList">
+                <!-- Les campagnes seront ajoutées ici -->
+            </tbody>
+        </table>
+    </main>
+    <script src="liste-marketing.js"></script>
+    <script src="supprimer-marketing.js"></script>
+    <a href="page-statistique.html?type=marketing">Voir les statistiques marketing</a>
+
+</body>
+</html>

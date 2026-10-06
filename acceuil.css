@@ -1,0 +1,291 @@
+.main {
+
+  background-image: url('images/fond.jpg');
+  background-size: cover;
+  background-position: center; 
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh; 
+}
+
+
+.nav-menu img {
+  width: 24px; /* Largeur souhaitée pour les icônes de la barre de navigation */
+  height: 24px; /* Hauteur souhaitée pour les icônes de la barre de navigation */
+}
+
+.card1 img,
+.card2 img,
+.card3 img,
+.card4 img {
+  width: 90px; /* Largeur souhaitée pour les icônes dans les boutons */
+  height: 90px; /* Hauteur souhaitée pour les icônes dans les boutons */
+}
+
+
+
+
+
+
+.up,
+.down {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; 
+}
+
+.up > *,
+.down > * {
+  margin:  10px; 
+}
+
+
+.card1,
+.card2,
+.card3,
+.card4 {
+  width: 180px; 
+  height: 180px; 
+  outline: none;
+  border: none;
+  background: white;
+  border-radius: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: .2s ease-in-out;
+}
+
+
+  
+  .card1 {
+    
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 90px 5px 5px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: .2s ease-in-out;
+  }
+  
+  .marketing {
+    margin-top: 1.5em;
+    margin-left: 1.2em;
+    fill: #03A9F4;
+  }
+  
+  .card2 {
+   
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 5px 90px 5px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: .2s ease-in-out;
+  }
+  
+  .produit {
+    margin-top: 1.5em;
+    margin-left: -.9em;
+    fill: #03A9F4;
+  }
+  
+  .card3 {
+   
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 5px 5px 5px 90px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: .2s ease-in-out;
+  }
+  
+  .statistiques {
+    margin-top: -.6em;
+    margin-left: 1.2em;
+  }
+  
+  .card4 {
+    
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 5px 5px 90px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: .2s ease-in-out;
+  }
+  
+  .propos {
+    margin-top: -.9em;
+    margin-left: -1.2em;
+    fill: #03A9F4;
+  }
+  
+  .card1:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: #cc39a4;
+  }
+  
+  .card1:hover .marketing {
+    fill: white;
+  }
+  
+  .card2:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: #03A9F4;
+  }
+  
+  .card2:hover .produit {
+    fill: white;
+  }
+  
+  .card3:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: #8c9eff;
+  }
+  
+  .card3:hover .statistiques {
+    fill: white;
+  }
+  
+  .card4:hover {
+    cursor: pointer;
+    scale: 1.1;
+    
+    background-color: rgb(75, 84, 134);
+  }
+  
+  .card4:hover .propos {
+    fill: white;
+  }
+
+  nav {
+    background-color: #354ac4;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    transition: 0.3s;
+    border-radius: 5px;
+  }
+  
+  .nav-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+  
+  .nav-menu li {
+    margin-right: 20px;
+  }
+  
+  .nav-menu li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    transition: 0.3s;
+  }
+  
+  .nav-menu li a:hover {
+    
+    border-radius: 5px;
+  }
+  
+  .nav-toggle {
+    display: none;
+  }
+  
+  .nav-toggle-label {
+    cursor: pointer;
+    display: block;
+    height: 32px;
+    position: relative;
+    width: 32px;
+  }
+  
+  .nav-toggle-label span {
+    background-color: white;
+    display: block;
+    height: 2px;
+    position: absolute;
+    transition: 0.3s;
+    width: 100%;
+  }
+  
+  .nav-toggle-label span:nth-child(1) {
+    top: 0;
+  }
+  
+  .nav-toggle-label span:nth-child(2), .nav-toggle-label span:nth-child(3) {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .nav-toggle-label span:nth-child(4) {
+    bottom: 0;
+  }
+  
+  .nav-toggle:checked + .nav-menu {
+    display: flex;
+  }
+  
+  .nav-toggle:checked + .nav-menu li {
+    margin: 10px 0;
+  }
+  
+  .nav-toggle:checked + .nav-menu li a {
+    font-size: 1.2rem;
+  }
+  
+  .nav-toggle:checked + .nav-menu li a:hover {
+    background-color: transparent;
+  }
+
+  
+
+
+
+.nav-toggle-label {
+  cursor: pointer;
+  display: block;
+  height: 32px;
+  position: relative;
+  width: 32px;
+}
+
+.nav-toggle-label span {
+  background-color: white;
+  display: block;
+  height: 2px;
+  position: absolute;
+  transition: 0.3s;
+  width: 100%;
+}
+
+.nav-toggle-label span:nth-child(1) {
+  top: 0;
+}
+
+.nav-toggle-label span:nth-child(2),
+.nav-toggle-label span:nth-child(3) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.nav-toggle-label span:nth-child(4) {
+  bottom: 0;
+}
+
+

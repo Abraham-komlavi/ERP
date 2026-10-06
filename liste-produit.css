@@ -1,0 +1,118 @@
+/* Style de base pour le corps de la page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Style pour l'en-tête */
+header {
+    background-color: #007BFF; /* Couleur de fond bleue */
+    color: white; /* Texte blanc */
+    padding: 1rem; /* Espacement interne */
+    text-align: center; /* Centrer le texte */
+}
+
+/* Style pour la section des actions (boutons) */
+.actions {
+    margin-top: 1rem; /* Marge en haut */
+    text-align: center; /* Centrer les actions */
+}
+
+/* Style pour les boutons */
+.actions .button {
+    background-color: #28a745; /* Couleur de fond verte */
+    color: white; /* Texte blanc */
+    padding: 0.5rem 1rem; /* Espacement interne */
+    margin: 0.2rem; /* Marge autour du bouton */
+    text-decoration: none; /* Supprimer la décoration de lien */
+    border-radius: 5px; /* Bordures arrondies */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transition pour les effets */
+    display: inline-block; /* Afficher en ligne */
+}
+
+.actions .button:hover {
+    background-color: #218838; /* Couleur de fond au survol */
+}
+
+.actions .button:active {
+    transform: scale(0.95); /* Réduire la taille au clic */
+}
+
+/* Style pour le tableau */
+table {
+    width: 80%; /* Largeur du tableau */
+    margin: 2rem auto; /* Centrer le tableau */
+    border-collapse: collapse; /* Fusionner les bordures */
+}
+
+/* Style pour les bordures des tableaux et cellules */
+table, th, td {
+    border: 1px solid #ddd; /* Bordures gris clair */
+}
+
+/* Style pour les cellules */
+th, td {
+    padding: 1rem; /* Espacement interne */
+    text-align: left; /* Alignement à gauche */
+}
+
+/* Style pour les en-têtes de colonnes */
+th {
+    background-color: #007BFF; /* Couleur de fond bleue */
+    color: white; /* Texte blanc */
+}
+
+/* Style pour les lignes de tableau impaires */
+tr:nth-child(even) {
+    background-color: #f9f9f9; /* Couleur de fond gris clair */
+}
+
+/* Style pour les lignes de tableau au survol */
+tr:hover {
+    background-color: #f1f1f1; /* Couleur de fond au survol */
+}
+
+/* Style pour les messages de succès et d'erreur */
+.message {
+    padding: 1rem; /* Espacement interne */
+    margin: 1rem auto; /* Centrer et espacer le message */
+    width: 80%; /* Largeur du message */
+    border-radius: 5px; /* Bordures arrondies */
+    text-align: center; /* Texte centré */
+}
+
+.message.success {
+    background-color: #d4edda; /* Fond vert clair pour succès */
+    color: #155724; /* Texte vert foncé */
+}
+
+.message.error {
+    background-color: #f8d7da; /* Fond rouge clair pour erreur */
+    color: #721c24; /* Texte rouge foncé */
+}
+
+/* Styles responsive pour petits écrans */
+@media (max-width: 600px) {
+    table, th, td {
+        font-size: 0.8rem; /* Réduire la taille de la police */
+    }
+
+    table {
+        width: 100%; /* Largeur du tableau */
+        margin: 1rem 0; /* Réduire la marge */
+    }
+
+    .actions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .actions .button {
+        width: 80%;
+        margin: 0.5rem 0;
+    }
+}

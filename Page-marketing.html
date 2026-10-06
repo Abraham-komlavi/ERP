@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion de marketing</title>
+    <style>
+        body {
+            background-image: url('images/G-marketing.jpg');
+            background-size: cover;
+            background-position: center; 
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #000;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .marketing-section {
+            width: 60%;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+        }
+
+        .btn {
+            margin-top: 10px;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .btn:active {
+            transform: scale(1);
+        }
+
+        nav {
+            background-color: #333;
+            position: relative;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: none;
+            flex-direction: column;
+            width: 100%;
+            background-color: #333;
+            position: absolute;
+            top: 50px;
+            left: 0;
+        }
+
+        nav ul.showing {
+            display: flex;
+        }
+
+        nav ul li {
+            text-align: left;
+        }
+
+        nav ul li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            background-color: #111;
+        }
+
+        .menu-icon {
+            display: block;
+            padding: 14px 16px;
+            cursor: pointer;
+            font-size: 24px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <ul id="nav-menu">
+            <li><a href="#Acceuil">Home</a></li>
+            <li><a href="#users">Admin</a></li>
+            <li><a href="#Contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <h1>"Le marketing est un concours de beauté pour les idées."</h1>
+    <div class="container">
+        <div class="marketing-section">
+            <h2>Gestion du Marketing</h2>
+            <div id="campaigns"></div>
+            <button class="btn" id="addCampaignBtn">Ajouter</button>
+            <button class="btn" id="editCampaignBtn">Modifier</button>
+            <button class="btn" id="deleteCampaignBtn">Supprimer</button>
+            <button class="btn" id="listCampaignBtn">Voir la liste</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const addCampaignBtn = document.getElementById("addCampaignBtn");
+            const editCampaignBtn = document.getElementById("editCampaignBtn");
+            const deleteCampaignBtn = document.getElementById("deleteCampaignBtn");
+            const listCampaignBtn = document.getElementById("listCampaignBtn");
+        
+            addCampaignBtn.addEventListener("click", function() {
+                window.location.href = "formulaire-marketing.html";
+            });
+        
+            editCampaignBtn.addEventListener("click", function() {
+                const campaignId = prompt("Entrez l'identifiant de la campagne à modifier:");
+                if (campaignId) {
+                    window.location.href = "Modification-marketing.html?id=" + campaignId;
+                }
+            });
+
+            listCampaignBtn.addEventListener("click", function() {
+                window.location.href = "liste-marketing.html";
+            });
+        
+            deleteCampaignBtn.addEventListener("click", function() {
+                if (confirm("Êtes-vous sûr de vouloir supprimer cette campagne ?")) {
+                    // Code to delete the campaign
+                    alert("La campagne a été supprimée."); // Replace with actual deletion logic
+                }
+            });
+        });
+
+        function toggleMenu() {
+            var menu = document.getElementById('nav-menu');
+            menu.classList.toggle('showing');
+        }
+    </script>
+</body>
+</html>

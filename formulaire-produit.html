@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter de Produits</title>
+    <link rel="stylesheet" href="formulaire.css">
+</head>
+<body>
+    <div id="successMessage" style="display: none; color: green;">Produit ajouté avec succès!</div>
+
+    <form id="ajout-produit" action="insert.php" method="post">
+        <label for="productIdentifiant">Identifiant:</label>
+        <input type="text" id="productIdentifiant" name="productIdentifiant" readonly><br><br>
+
+        <label for="productName">Nom du Produit:</label>
+        <input type="text" id="productName" name="productName"><br><br>
+
+        <label for="productQualite">Qualité:</label>
+        <input type="text" id="productQualite" name="productQualite"><br><br>
+
+        <label for="productQuantite">Quantité:</label>
+        <input type="number" id="productQuantite" name="productQuantite"><br><br>
+
+        <label for="productTemps">Temps(j):</label>
+        <input type="number" id="productTemps" name="productTemps"><br><br>
+
+        <label for="productCout">Cout(DH):</label>
+        <input type="number" id="productCout" name="productCout"><br><br>
+
+        <button type="submit">Ajouter</button>
+    </form>
+
+    <script src="formulaire-produit.js"></script>
+</body>
+</html>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const productIdentifiant = document.getElementById("productIdentifiant");
+    productIdentifiant.value = generateProductId();
+});
+
+function generateProductId() {
+    let products;
+    try {
+        products = JSON.parse(localStorage.getItem('products')) || [];
+    } catch (e) {
+        products = [];
+        console.error("Erreur de parsing JSON", e);
+    }
+
+    let maxId = 0;
+    products.forEach(product => {
+        const idNumber = parseInt(product.id.split('-')[1]);
+        if (idNumber > maxId) {
+            maxId = idNumber;
+        }
+    });
+
+    const newIdNumber = maxId + 1;
+    return 'PROD-' + newIdNumber.toString().padStart(2, '0');
+}
+
+const form = document.getElementById("ajout-produit");
+
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const id = document.getElementById("productIdentifiant").value;
+    const name = document.getElementById("productName").value;
+    const qualite = document.getElementById("productQualite").value;
+    const quantite = document.getElementById("productQuantite").value;
+    const temps = document.getElementById("productTemps").value;
+    const cout = document.getElementById("productCout").value;
+
+    if (!name || !qualite || !quantite || !temps || !cout) {
+        alert('Tous les champs doivent être remplis.');
+        return;
+    }
+
+    let products;
+    try {
+        products = JSON.parse(localStorage.getItem('products')) || [];
+    } catch (e) {
+        products = [];
+        console.error("Erreur de parsing JSON", e);
+    }
+
+    products.push({ id, name, qualite, quantite, temps, cout });
+    localStorage.setItem('products', JSON.stringify(products));
+
+    console.log('Products after save:', JSON.parse(localStorage.getItem('products')));
+
+    const successMessage = document.getElementById("successMessage");
+    successMessage.style.display = "block";
+    setTimeout(() => {
+        successMessage.style.display = "none";
+    }, 3000);
+
+    form.reset();
+    document.getElementById("productIdentifiant").value = generateProductId();
+});
+</script>

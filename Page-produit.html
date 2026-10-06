@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion de Production</title>
+    <style>
+        body {
+            background-image: url('images/G-Produit.jpg');
+            background-size: cover;
+            background-position: center; 
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #000;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .production-section {
+            width: 60%;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+        }
+
+        .btn {
+            margin-top: 10px;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .btn:active {
+            transform: scale(1);
+        }
+
+        nav {
+            background-color: #333;
+            position: relative;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: none;
+            flex-direction: column;
+            width: 100%;
+            background-color: #333;
+            position: absolute;
+            top: 50px;
+            left: 0;
+        }
+
+        nav ul.showing {
+            display: flex;
+        }
+
+        nav ul li {
+            text-align: left;
+        }
+
+        nav ul li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            background-color: #111;
+        }
+
+        .menu-icon {
+            display: block;
+            padding: 14px 16px;
+            cursor: pointer;
+            font-size: 24px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <ul id="nav-menu">
+            <li><a href="#Acceuil">Home</a></li>
+            <li><a href="#users">Admin</a></li>
+            <li><a href="#Contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <h1>"La valeur d'un produit se mesure à la satisfaction du client."</h1>
+    <div class="container">
+        <div class="production-section">
+            <h2>Gestion de la production</h2>
+            <div id="products">
+                <!-- Liste des produits -->
+            </div>
+            <button class="btn" id="addProductBtn">Ajouter</button>
+            <button class="btn" id="editProductBtn">Modifier</button>
+            <button class="btn" id="deleteProductBtn">Supprimer</button>
+            <button class="btn" id="listProductBtn">Voir la liste</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const addProductBtn = document.getElementById("addProductBtn");
+            const editProductBtn = document.getElementById("editProductBtn");
+            const deleteProductBtn = document.getElementById("deleteProductBtn");
+            const listProductBtn = document.getElementById("listProductBtn");
+
+            addProductBtn.addEventListener("click", function() {
+                window.location.href = "formulaire-produit.html";
+            });
+
+            editProductBtn.addEventListener("click", function() {
+                const productId = prompt("Entrez l'identifiant du produit à modifier:");
+                if (productId) {
+                    window.location.href = "Modification-produit.html?id=" + productId;
+                }
+            });
+
+            deleteProductBtn.addEventListener("click", function() {
+                if (confirm("Êtes-vous sûr de vouloir supprimer ce produit ?")) {
+                    // Code pour supprimer le produit
+                    alert("Produit supprimé !"); // Remplacer par la logique réelle de suppression
+                }
+            });
+
+            listProductBtn.addEventListener("click", function() {
+                window.location.href = "liste-produit.html";
+            });
+        });
+
+        function toggleMenu() {
+            var menu = document.getElementById('nav-menu');
+            menu.classList.toggle('showing');
+        }
+    </script>
+</body>
+</html>
